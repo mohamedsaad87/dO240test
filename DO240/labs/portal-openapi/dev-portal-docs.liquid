@@ -1,0 +1,23 @@
+{% content_for javascripts %}
+    {{ 'active_docs.js' | javascript_include_tag }}
+{% endcontent_for %}
+
+<h1>Documentation</h1>
+
+{% for spec in provider.api_specs %}
+
+<h1>{{spec.service.name}} documentation:</h1>
+
+<div class="swagger-section">
+  <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+  <div id="swagger-ui-container_{{spec.system_name}}" class="swagger-ui-wrap"></div>
+</div>
+
+<script type="text/javascript">
+  (function () {
+    var url = "{{spec.url}}";
+    var serviceEndpoint = "{{spec.api_product_production_public_base_url}}"
+    SwaggerUI({ url: url, dom_id: "#swagger-ui-container_{{spec.system_name}}" }, serviceEndpoint);
+  }());
+</script>
+{% endfor %}
