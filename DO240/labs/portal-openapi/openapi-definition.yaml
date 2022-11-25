@@ -10,7 +10,7 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
-- url: CHANGE_ME
+- url: http://petshelter-api.portal-openapi.svc.cluster.local
 tags:
 - name: pet
   description: API for managing shelter pets
